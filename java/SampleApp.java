@@ -15,11 +15,11 @@ class Test
 
     public Test()
     {
-        this.x = "";
+        this.x = "World!";
     }
 
     public void printHello(String mes) //method. It's can call from outside
     {
-        System.out.println(mes);
+        System.out.println(mes + " " + x);
     }
 }
