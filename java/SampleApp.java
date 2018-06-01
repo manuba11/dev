@@ -4,18 +4,33 @@ public class SampleApp
 {
     public static void main(String[] args)
     {
-        Greeting i = new Greeting();
+        Speech i = new Speech();
 
         System.out.println(i.sayGreet("morning"));
-        System.out.println(i.sayGreet("daytime"));
-        System.out.println(i.sayGreet("evening"));
-        System.out.println(i.sayGreet("night"));
-        System.out.println(i.sayGreet("asa"));
-
+        System.out.println(i.introduceMyself());
+        System.out.println(i.question());
+//        System.out.println(i.sayGreet("daytime"));
+//        System.out.println(i.sayGreet("evening"));
+//        System.out.println(i.sayGreet("night"));
+//        System.out.println(i.sayGreet("asa"));
+//
 //        EveningGreeting i = new EveningGreeting(); //generate instans
 //        i.DayTime();
 //        i.Morning();
 //        i.Evening();
+    }
+}
+
+class Speech extends Greeting
+{
+    public String introduceMyself()
+    {
+        return "My name is Manabu Izurumachi.";
+    }
+
+    public String question()
+    {
+        return "Who are you?";
     }
 }
 
@@ -47,52 +62,3 @@ class Greeting
 
 
 
-// class Greeting
-// {
-//     private String sGreet;  //can't get form outside
-// 
-//     public Greeting()
-//     {
-//         this.sGreet = "Hello";
-//     }
-// 
-//     public void DayTime() //method. It's can call from outside
-//     {
-//         System.out.println(this.sGreet);
-//     }
-// }
-// 
-// class MorningGreeting extends Greeting
-// {
-//     
-//     private String sGreet;  //can't get form outside
-// 
-//     public MorningGreeting()
-//     {
-//         this.sGreet = "Good morning";
-//     }
-// 
-//     public void Morning() //method. It's can call from outside
-//     {
-//         System.out.println(this.sGreet);
-//     }
-// 
-// }
-// 
-// 
-// class EveningGreeting extends MorningGreeting
-// {
-//     
-//     private String sGreet;  //can't get form outside
-// 
-//     public EveningGreeting()
-//     {
-//         this.sGreet = "Good evening";
-//     }
-// 
-//     public void Evening() //method. It's can call from outside
-//     {
-//         System.out.println(this.sGreet);
-//     }
-
-//}
