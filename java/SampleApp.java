@@ -1,25 +1,62 @@
-//Commnet
+//Comment
 
 public class SampleApp 
 {
     public static void main(String[] args)
     {
-        Test i = new Test(); //generate instans
-        i.printHello("Hello"); //call 
+        EveningGreeting i = new EveningGreeting(); //generate instans
+        i.DayTime();
+        i.Morning();
+        i.Evening();
     }
 }
 
-class Test
+class Greeting
 {
-    private String x; //can't get form outside
+    private String sGreet;  //can't get form outside
 
-    public Test()
+    public Greeting()
     {
-        this.x = "World!";
+        this.sGreet = "Hello";
     }
 
-    public void printHello(String mes) //method. It's can call from outside
+    public void DayTime() //method. It's can call from outside
     {
-        System.out.println(mes + " " + x);
+        System.out.println(this.sGreet);
     }
+}
+
+class MorningGreeting extends Greeting
+{
+    
+    private String sGreet;  //can't get form outside
+
+    public MorningGreeting()
+    {
+        this.sGreet = "Good morning";
+    }
+
+    public void Morning() //method. It's can call from outside
+    {
+        System.out.println(this.sGreet);
+    }
+
+}
+
+
+class EveningGreeting extends MorningGreeting
+{
+    
+    private String sGreet;  //can't get form outside
+
+    public EveningGreeting()
+    {
+        this.sGreet = "Good evening";
+    }
+
+    public void Evening() //method. It's can call from outside
+    {
+        System.out.println(this.sGreet);
+    }
+
 }
