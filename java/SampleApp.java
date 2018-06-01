@@ -10,6 +10,7 @@ public class SampleApp
         System.out.println(i.sayGreet("daytime"));
         System.out.println(i.sayGreet("evening"));
         System.out.println(i.sayGreet("night"));
+        System.out.println(i.sayGreet("asa"));
 
 //        EveningGreeting i = new EveningGreeting(); //generate instans
 //        i.DayTime();
