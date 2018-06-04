@@ -1,5 +1,11 @@
-#!/usr/bin/rubyG
+#!/usr/bin/ruby
 #coding:utf-8
+
+puts Dir.pwd
+
+Dir.glob("/**/*").each do |f|
+	puts Dir.pwd + "/" + f
+end
 
 #fSample = File.open("sample.txt", "a")
 #if fSample != nil then
@@ -46,10 +52,4 @@
 #curDir = Dir.pwd
 #puts curDir
 #
-puts Dir.pwd
-
-Dir.glob("/**/*").each do |f|
-	puts Dir.pwd + "/" + f
-end
-
 

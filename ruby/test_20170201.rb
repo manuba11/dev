@@ -24,7 +24,3 @@ for lp in 1..10 do
 	puts fact(lp)
 end
 
-
-
-
-

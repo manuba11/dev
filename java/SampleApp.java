@@ -5,12 +5,12 @@ public class SampleApp
     public static void main(String[] args)
     {
         Speech i = new Speech();
-        Greeting i2 = new Greeting();
+        Greeting i2 = new Greeting(); //Super Class of Speech
 
         System.out.println(i.sayGreet("morning"));
         System.out.println(i.introduceMyself());
         System.out.println(i.question());
-        System.out.println(i2.sayGreet("morning"));
+        System.out.println(i2.sayGreet("midnight"));
         System.out.println(i2.getFrag());
     }
 }
@@ -32,7 +32,7 @@ class Greeting
 {
     private boolean bFrag = false;
 
-    private void Greeting()
+    public Greeting()
     {
 
         bFrag = true;
@@ -51,13 +51,13 @@ class Greeting
             case "night":
                 return "Good night";
             default:
-                return "Doumo";
+                return "Doumo Doumo";
         }
     }
 
     public String getFrag()
     {
-        if (this.bFrag == false)
+        if (bFrag == false)
         {
             return "false";
         } else {
