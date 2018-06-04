@@ -5,19 +5,13 @@ public class SampleApp
     public static void main(String[] args)
     {
         Speech i = new Speech();
+        Greeting i2 = new Greeting();
 
         System.out.println(i.sayGreet("morning"));
         System.out.println(i.introduceMyself());
         System.out.println(i.question());
-//        System.out.println(i.sayGreet("daytime"));
-//        System.out.println(i.sayGreet("evening"));
-//        System.out.println(i.sayGreet("night"));
-//        System.out.println(i.sayGreet("asa"));
-//
-//        EveningGreeting i = new EveningGreeting(); //generate instans
-//        i.DayTime();
-//        i.Morning();
-//        i.Evening();
+        System.out.println(i2.sayGreet("morning"));
+        System.out.println(i2.getFrag());
     }
 }
 
@@ -25,7 +19,7 @@ class Speech extends Greeting
 {
     public String introduceMyself()
     {
-        return "My name is Manabu Izurumachi.";
+       return "My name is Manabu Izurumachi.";
     }
 
     public String question()
@@ -36,12 +30,14 @@ class Speech extends Greeting
 
 class Greeting
 {
-//    private String sGreet; 
-//    public void Greeting()
-//    {
-//        sGreet = "";
-//    }
-//
+    private boolean bFrag = false;
+
+    private void Greeting()
+    {
+
+        bFrag = true;
+    }
+
     public String sayGreet(String sTime)
     {
         switch(sTime)
@@ -56,6 +52,16 @@ class Greeting
                 return "Good night";
             default:
                 return "Doumo";
+        }
+    }
+
+    public String getFrag()
+    {
+        if (this.bFrag == false)
+        {
+            return "false";
+        } else {
+            return "true";
         }
     }
 }
