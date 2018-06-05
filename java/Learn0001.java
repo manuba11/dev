@@ -1,11 +1,20 @@
 //
+import java.util.*;
 
 class Learn0001{
     
-    Public static void main(String[] args)
+    public static void main(String[] args)
     {
-        
-    
+        Bio human = new Bio();
+        human.setFirstName("Manabu");
+        human.setFamilyName("Izurumachi");
+        human.setSex('M');
+
+        Calendar cBirth = Calendar.getInstance();
+        cBirth.set(1969, 11 - 1, 4, 0, 0, 0);
+        human.setBirth(cBirth);
+
+        human.printBio();
     }
 }
 
@@ -14,30 +23,45 @@ class Bio
     private String sFirstName;
     private String sFamilyName;
     private char cSex;
-    private Calender calBirth;
+    private TimeZone tzTokyo;
+    private Calendar calBirth;
     
+    //Constractor
     Bio()
     {
         sFirstName = "";
         sFamilyName = "";
-        cSex = "";
-        calBirth = new calender;
+        cSex = 'M';
+        tzTokyo = TimeZone.getTimeZone("Asia/Tokyo"); 
+        calBirth = Calendar.getInstance(tzTokyo, ja_JP);
     }
     
-    public setFirstName(String sFirstName)
+    public void setFirstName(String sFirstName)
     {
         this.sFirstName = sFirstName;
     }
 
 
-    public setFarmilyName(String sFamilyName)
+    public void setFamilyName(String sFamilyName)
     {
         this.sFamilyName = sFamilyName;
     }
 
-    public setSex(char cSex)
+    public void setSex(char cSex)
     {
         this.cSex = cSex;
     }
 
+    public void setBirth(Calendar calBirth)
+    {
+        this.calBirth = calBirth;
+    }
+
+    public void printBio()
+    {
+        System.out.println(this.sFirstName);
+        System.out.println(this.sFamilyName);
+        System.out.println(this.cSex);
+        System.out.println(this.calBirth.getTime());
+    }
 }
