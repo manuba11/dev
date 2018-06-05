@@ -23,6 +23,7 @@ class Bio
     private String sFirstName;
     private String sFamilyName;
     private char cSex;
+    private Locale loJP;
     private TimeZone tzTokyo;
     private Calendar calBirth;
     
@@ -32,8 +33,10 @@ class Bio
         sFirstName = "";
         sFamilyName = "";
         cSex = 'M';
+        loJP = new Locale("ja", "JP");
         tzTokyo = TimeZone.getTimeZone("Asia/Tokyo"); 
-        calBirth = Calendar.getInstance(tzTokyo, ja_JP);
+        calBirth = Calendar.getInstance(tzTokyo, loJP);
+
     }
     
     public void setFirstName(String sFirstName)
