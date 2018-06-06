@@ -1,5 +1,6 @@
 //
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 class Learn0001{
     
@@ -62,9 +63,21 @@ class Bio
 
     public void printBio()
     {
-        System.out.println(this.sFirstName);
-        System.out.println(this.sFamilyName);
-        System.out.println(this.cSex);
-        System.out.println(this.calBirth.getTime());
+        SimpleDateFormat sdfBirthDate = new SimpleDateFormat("yyyy/MM/dd");
+
+        System.out.println(this.sFirstName + ' ' + this.sFamilyName);
+        switch (this.cSex)
+        {
+            case 'M':
+                System.out.println("Male");
+                break;
+            case 'F':
+                System.out.println("Fmale");
+                break;
+            default:
+                System.out.println("Other");
+                break;
+        }
+        System.out.println(sdfBirthDate.format(this.calBirth.getTime()));
     }
 }
