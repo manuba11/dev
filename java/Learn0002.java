@@ -5,14 +5,14 @@ class Learn0002
 {
     public static void main(String[] args)
     {
-        Integer[] iOne2Hundred;
-        iOne2Hundred = new Integer[10000];
+        Integer[] iOne2TenThousand;
+        iOne2TenThousand = new Integer[10000];
         Random ranNumber = new Random();
 
-        for(int i = 0; i < iOne2Hundred.length; i++)
+        for(int i = 0; i < iOne2TenThousand.length; i++)
         {
-            iOne2Hundred[i] = ranNumber.nextInt(10000);
-            System.out.println(i + "->" + iOne2Hundred[i]); 
+            iOne2TenThousand[i] = ranNumber.nextInt(10000);
+            System.out.println(i + "->" + iOne2TenThousand[i]); 
         }
     }
 }
