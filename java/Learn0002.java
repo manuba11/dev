@@ -5,24 +5,30 @@ class Learn0002
 {
     public static void main(String[] args)
     {
-        Integer[] iOne2TenThousand;
-        iOne2TenThousand = new Integer[10000];
-        Random ranNumber = new Random();
+        Integer[] iOne2Hundred = new Integer[100];
+        RandomNumber r = new RandomNumber();
 
-        for(int i = 0; i < iOne2TenThousand.length; i++)
+        for(int i = 0; i < iOne2Hundred.length; i++)
         {
-            iOne2TenThousand[i] = ranNumber.nextInt(10000);
-            System.out.println(i + "->" + iOne2TenThousand[i]); 
+            iOne2Hundred[i] = r.getRandomNumber(10000);
+            System.out.println(i + "->" + iOne2Hundred[i]);
         }
     }
 }
 
 
-public void class setRandom
+class RandomNumber
 {
-    setRandom(int iMaxNumber)
+    private Random ranNumber;
+
+    RandomNumber()
     {
-        
+        this.ranNumber = new Random();
+    }
+
+    Integer getRandomNumber(int iMaxNumber)
+    {
+        return this.ranNumber.nextInt(iMaxNumber);
     }
 }
 
