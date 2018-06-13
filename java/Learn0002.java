@@ -17,6 +17,7 @@ class Learn0002
         }
 
         //昇順でソート。配列を引数にしてArrayクラスのsort()メソッドを呼び出す
+        //インスタンス化していないからこれはクラスメソッド？
         Arrays.sort(iOne2Hundred);
 
         for(int i = 0; i < iOne2Hundred.length; i++)
