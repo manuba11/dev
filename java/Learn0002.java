@@ -20,19 +20,21 @@ class Learn0002
         //インスタンス化していないからこれはクラスメソッド？
         Arrays.sort(iOne2Hundred);
 
-        for(int i = 0; i < iOne2Hundred.length; i++)
-        {
-            System.out.println(i + "->" + iOne2Hundred[i]);
-        }
+        //for(int i = 0; i < iOne2Hundred.length; i++)
+        //{
+        //    System.out.println(i + "->" + iOne2Hundred[i]);
+        //}
+        System.out.println(Arrays.asList(iOne2Hundred));
 
         //降順でソート
         //2番目の引数にCollectionsクラスのreverseOrder()メソッドを指定する
         Arrays.sort(iOne2Hundred, Collections.reverseOrder());
 
-        for(int i = 0; i < iOne2Hundred.length; i++)
-        {
-            System.out.println(i + "->" + iOne2Hundred[i]);
-        }
+        //for(int i = 0; i < iOne2Hundred.length; i++)
+        //{
+        //    System.out.println(i + "->" + iOne2Hundred[i]);
+        //}
+        System.out.println(Arrays.asList(iOne2Hundred));
     }
 }
 
