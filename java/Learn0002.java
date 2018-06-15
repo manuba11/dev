@@ -43,11 +43,13 @@ class RandomNumber
 {
     private Random ranNumber;
 
+    //コンストラクタでranNumberをインスタンス化
     RandomNumber()
     {
         this.ranNumber = new Random();
     }
-
+    
+    //引数を上限とした範囲でらんだな数値を返す
     Integer getRandomNumber(int iMaxNumber)
     {
         return this.ranNumber.nextInt(iMaxNumber);
