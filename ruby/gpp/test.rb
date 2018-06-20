@@ -27,7 +27,7 @@ def doscraping(url)
     doc = Nokogiri::HTML.parse(html, nil, charset)
     #
     print doc.xpath("//*[@id='makerSeries']/li[1]/div/span/span/a/span").text + " "
-    print doc.xpath("//*[@id='p-PTShopData_name_link']").text
+    print doc.xpath("//*[@id='mainLeft']/table/tbody/tr/td[5]/div[1]/div[1]/div/p[1]/a")
     
 end
 
