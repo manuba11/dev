@@ -22,7 +22,7 @@ def doscraping(url)
 
     #Search path with class name 'p-PTShopData_name'
     for i in doc.xpath("//p[@class='p-PTShopData_name']/a") do
-        puts i.text
+        puts i.class
     end
 end
 
@@ -61,7 +61,11 @@ def searchwithkeyword(keyword)
 
         doc = Nokogiri::HTML.parse(html, nil, charset)
 
-        #List of products searched by keyword.
+        #NList of products searched by keyword.
+#        for i in doc.xpath("//div[@class='iviewbtn']") do
+#            puts i.text
+#        end
+#
         for i in doc.xpath("//p[@class='itemnameN']") do
             puts i.text
         end
