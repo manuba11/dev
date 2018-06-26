@@ -20,7 +20,7 @@ def doscraping(url)
 
     doc = Nokogiri::HTML.parse(html, nil, charset)
 
-    #Search path with class name 'p-PTShopData_name'
+    #Search path with class name 'p-PTShopDaata_name'
     for i in doc.xpath("//p[@class='p-PTShopData_name']/a") do
         puts i.class
     end
@@ -52,10 +52,11 @@ end
 #Processing of keyword search.
 def searchwithkeyword(keyword)
     if keyword != nil then
-        url = "http://kakaku.com/search_results/"
+        urlKakaku = "http://kakaku.com/search_results/"
         charset = "Shift_JIS" #kakaku.com
         #"<<" is faster than concatenating with "+".
-        html = open(url << keyword.gsub(/\s/, '+') << "/") do |f|
+
+        html = open(urlKakaku << keyword.gsub(/\s/, '+') << "/") do |f|
             f.read
         end
 
@@ -76,8 +77,15 @@ def searchwithkeyword(keyword)
 #http://blog.takuros.net/entry/2014/04/15/070434
 #NodeSet Object
 #Element Object
-    doc.xpath("//div[@class='itemBg clearfix']").each do |node|
-            puts node.at("a").attribute("href").value
+        doc.xpath("//div[@class='itemBg clearfix']").each do |node|
+            #puts node.xpath(".//a[@class='selfLink']").attribute("href").text
+            #puts node.at("a").attribute("href").value
+            urlGoods = node.xpath(".//a").attribute("href").value
+            if urlGoods.index("item") != nil then
+                puts node.xpath(".//img").attribute("alt").value
+                puts urlGoods
+
+            end
         end
     else
        puts "Please enter the right keyword"
