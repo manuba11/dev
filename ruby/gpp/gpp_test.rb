@@ -74,16 +74,11 @@ def searchwithkeyword(keyword)
 #            puts i.text
 #        end
 #http://blog.takuros.net/entry/2014/04/15/070434
-        puts doc/'//title'
-        puts doc%'//title'
-        puts doc.at('//title')
-        puts doc.at_xpath('//title')
-        puts doc.xpath('//title')
-        puts doc.xpath('//title')[0]
-        puts doc.xpath('//title').first
-        puts doc.xpath('//title').text
-        puts doc.xpath('//title')[0].text
-        puts doc.xpath('//title').first.text
+#NodeSet Object
+#Element Object
+    doc.xpath("//div[@class='itemBg clearfix']").each do |node|
+            puts node.at("a").attribute("href").value
+        end
     else
        puts "Please enter the right keyword"
        puts "If the keyword contains spaces, please join with '+'"
