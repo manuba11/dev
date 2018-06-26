@@ -66,9 +66,24 @@ def searchwithkeyword(keyword)
 #            puts i.text
 #        end
 #
-        for i in doc.xpath("//p[@class='itemnameN']") do
-            puts i.text
-        end
+#        for i in doc.xpath("//a[@class='noscriptLink']") do
+#            puts i.attribute("href")
+#        end
+
+#        for i in doc.xpath("//p[@class='itemnameN']") do
+#            puts i.text
+#        end
+#http://blog.takuros.net/entry/2014/04/15/070434
+        puts doc/'//title'
+        puts doc%'//title'
+        puts doc.at('//title')
+        puts doc.at_xpath('//title')
+        puts doc.xpath('//title')
+        puts doc.xpath('//title')[0]
+        puts doc.xpath('//title').first
+        puts doc.xpath('//title').text
+        puts doc.xpath('//title')[0].text
+        puts doc.xpath('//title').first.text
     else
        puts "Please enter the right keyword"
        puts "If the keyword contains spaces, please join with '+'"
