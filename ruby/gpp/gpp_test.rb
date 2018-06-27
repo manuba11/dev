@@ -4,6 +4,7 @@
 #Load library
 require 'open-uri'
 require 'nokogiri'
+require 'trigram'
 
 #Processing of scraping with nokogiri
 def doscraping(url)
@@ -52,7 +53,7 @@ end
 #Processing of keyword search.
 def searchwithkeyword(keyword)
     if keyword != nil then
-        urlKakaku = "http://kakaku.com/search_results/"
+    urlKakaku = "http://kakaku.com/search_results/"
         charset = "Shift_JIS" #kakaku.com
         #"<<" is faster than concatenating with "+".
 
@@ -82,8 +83,12 @@ def searchwithkeyword(keyword)
             #puts node.at("a").attribute("href").value
             urlGoods = node.xpath(".//a").attribute("href").value
             if urlGoods.index("item") != nil then
-                puts node.xpath(".//img").attribute("alt").value
-                puts urlGoods
+                nameGoods = node.xpath(".//img").attribute("alt").value
+                    print keyword
+                    puts " <=> " + nameGoods
+                    print " --> "
+                    puts Trigram.compare(keyword, nameGoods)
+#                puts '<a href="' << urlGoods << '">' << nameGoods << '</a>'
 
             end
         end
