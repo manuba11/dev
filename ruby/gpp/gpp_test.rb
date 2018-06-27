@@ -2,6 +2,7 @@
 # -- coding:utf-8
 
 #Load library
+#require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
 require 'trigram'
@@ -87,6 +88,7 @@ def searchwithkeyword(keyword)
                     print keyword
                     puts " <=> " + nameGoods
                     print " --> "
+                    #Using Trigram for calculate similarity of search keyword.
                     puts Trigram.compare(keyword, nameGoods)
 #                puts '<a href="' << urlGoods << '">' << nameGoods << '</a>'
 
