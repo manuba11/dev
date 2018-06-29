@@ -1,10 +1,12 @@
 #!/usr/bin/ruby
 # -- coding:utf-8
+#2018/06/29
 
 #Load library
 #require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
+#Similarity of keywords
 require 'trigram'
 
 #Processing of scraping with nokogiri
@@ -23,8 +25,10 @@ def doscraping(url)
     doc = Nokogiri::HTML.parse(html, nil, charset)
 
     #Search path with class name 'p-PTShopDaata_name'
-    for i in doc.xpath("//p[@class='p-PTShopData_name']/a") do
-        puts i.class
+    doc.xpath("//*[@class='p-priceTable']//tr").each do |i|
+        print i.at("p[@class='p-PTPrice_price']")
+        print " "
+        puts i.at("a[@class='p-PTShopData_name_link']")
     end
 end
 
