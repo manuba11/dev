@@ -27,17 +27,17 @@ def doscraping(url)
     #Search path with class name 'p-PTShopDaata_name'
     doc.xpath("//table[@class='p-priceTable']//tr").each do |i|
         if i.at("p[@class='p-PTPrice_price']").nil? == false then
-            puts i.at("a[@class='p-PTShopData_name_link']").text.gsub("/(\r\n|\r|\n)/", "") << " "
-#            puts i.at("p[@class='p-PTPrice_price']").text
+            print i.at("a[@class='p-PTShopData_name_link']").text.chomp << " "
+            puts i.at("p[@class='p-PTPrice_price']").text
         end
 #            puts i.text
 #        i.empty? do
 #            puts i.xpath(".//p[@class='p-PTPrice_price']").text
 #        i.xpath("p[@class='p-PTPrice_price']").nil? do
 #        end
-        #print i.at("p[@class='p-PTPrice_price']").to_s
-        #print " "
-        #puts i.content("a[@class='p-PTShopData_name_link']")
+#        print i.at("p[@class='p-PTPrice_price']").to_s
+#        print " "
+#        puts i.content("a[@class='p-PTShopData_name_link']")
     end
 end
 
@@ -71,13 +71,14 @@ def searchwithkeyword(keyword)
         charset = "Shift_JIS" #kakaku.com
         #"<<" is faster than concatenating with "+".
 
+        #スペースがある場合'+'に置換する
         html = open(urlKakaku << keyword.gsub(/\s/, '+') << "/") do |f|
             f.read
         end
 
         doc = Nokogiri::HTML.parse(html, nil, charset)
 
-        #NList of products searched by keyword.
+        #List of products searched by keyword.
 #        for i in doc.xpath("//div[@class='iviewbtn']") do
 #            puts i.text
 #        end
@@ -127,7 +128,7 @@ if ARGV[0] != nil then
     when "-k" then
         searchwithkeyword(ARGV[1])
     else
-        
+
     end
 else
     #Show how to use the 'gpp.rb'
