@@ -19,7 +19,8 @@ def doscraping(url)
     #Character code of kakaku.com is Shift-JIS.
     charset = "Shift_JIS"
 
-    #Read page
+    listShop = Array["PCSHOPアーク","TSUKUMO","ソフマップ","ソフマップ.com","ドスパラ","ヨドバシ.com","ビックカメラ","ビックカメラ.com","Amazon.co.jp"]
+   #Read page
     html = open(url) do |f|
         f.read
     end
@@ -30,8 +31,12 @@ def doscraping(url)
     doc.xpath("//table[@class='p-priceTable']//tr").each do |i|
         #nilオブジェクトでない場合（これがないとエラーになる）
         if i.at("p[@class='p-PTPrice_price']").nil? == false then
-            print i.at("a[@class='p-PTShopData_name_link']").text.chomp << " "
-            puts i.at("p[@class='p-PTPrice_price']").text
+            listShop.each do |f|
+                if i.at("a[@class='p-PTShopData_name_link']").text.chomp.include?(f) == true then
+                    print f <<  " "
+                    puts i.at("p[@class='p-PTPrice_price']").text.gsub(/\xc2\xa5|\,/, "")
+                end
+            end
         end
     end
 end
@@ -62,8 +67,10 @@ end
 #Processing of keyword search.
 def searchwithkeyword(keyword)
     if keyword != nil then
-    urlKakaku = "http://kakaku.com/search_results/"
+        urlKakaku = "http://kakaku.com/search_results/"
         charset = "Shift_JIS" #kakaku.com
+        rankUrl = 0
+        urlResult = [0, "", ""] 
         #"<<" is faster than concatenating with "+".
 
         #If there is space character, replace with '+'/スペースがある場合'+'に置換する
@@ -78,19 +85,26 @@ def searchwithkeyword(keyword)
         #NodeSet Object
         #Element Object
         doc.xpath("//div[@class='itemBg clearfix']").each do |node|
-            #puts node.xpath(".//a[@class='selfLink']").attribute("href").text
-            #puts node.at("a").attribute("href").value
             urlGoods = node.xpath(".//a").attribute("href").value
             if urlGoods.index("item") != nil then
                 nameGoods = node.xpath(".//img").attribute("alt").value
-                    print keyword
-                    puts " <=> " + nameGoods
-                    print " --> "
-                    #Using Trigram for calculate similarity of search keyword.
-                    puts Trigram.compare(keyword, nameGoods)
-#                puts '<a href="' << urlGoods << '">' << nameGoods << '</a>'
-
+                #Using Trigram for calculate similarity of search keyword.
+                rankUrl = Trigram.compare(keyword, nameGoods)
+                if urlResult[0] < rankUrl then
+                   urlResult[0] = rankUrl
+                   urlResult[1] = nameGoods
+                   urlResult[2] = urlGoods
+                end
             end
+        end
+        puts "----------"
+        urlResult.each do |f|
+            puts f
+        end
+        puts "----------"
+        if urlResult[2] != nil then
+            puts "\n"
+            doscraping(urlResult[2])
         end
     else
        puts "Please enter the right keyword"
