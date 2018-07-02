@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 # -- coding:utf-8
 #2018/06/29
+#2018/07/02
 
 #Load library
 #require 'rubygems'
