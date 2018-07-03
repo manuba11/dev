@@ -15,8 +15,6 @@ class Learn0002
             iOne2Hundred[i] = r.getRandomNumber(10000);
             System.out.println(i + "->" + iOne2Hundred[i]);
         }
-
-        //----------------------------------------/
         //
         //昇順でソート。配列を引数にしてArrayクラスのsort()メソッドを呼び出す
         //インスタンス化していないからこれはクラスメソッド？
