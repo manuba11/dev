@@ -15,7 +15,8 @@ class Learn0003
         }
 
         //Initialize array with same value.
-        Arrays.fill(iVar, 30000);
+        //Need import Arrays
+        Arrays.fill(iVar, 30006);
 
         for (int i = 0; i < iVar.length; i++)
         {
@@ -32,8 +33,6 @@ class Learn0003
         {
             System.out.println(iVar[i]);
         }
-
-
     }
 }
 
