@@ -8,7 +8,7 @@ class Learn0003
         //Initialize  array with initial value.
         byte[] byVar = {117, 118, 119, 120,  121, 123, 124, 125, 126, 127};
 //        short[] shVar = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-        int[] inVar = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1000000000};
+        int[] inVar = {1, 2, 3, 4, 5, 6, 7, 8, 9, 150000000};
 //        long[] loVar = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 //        System.out.println(inVar.length);
