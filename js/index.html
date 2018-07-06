@@ -18,15 +18,26 @@
 </head>
 <body>
     <h1>Javascriptの練習</h1>
-    <h2>document.getElementById([idの名前])</h2>
-    <input type = "button" name = "btnChg" value = "押す" onClick = "myFunc()"><p>
+    <h2>document</h2>
+
+    <h3>docuent.write([テキスト])</h3>
     <div id="t1"></div>
 
+    <h3>document.getElementByName([名前])</h3>
+    <form id = "form1">
+        <input type = "text" id = "tboxText" value = "ここに文字を入れてください"> 
+        <input type = "button" id = "btnChg" value = "押す" onClick = "myFunc()"><p>
+    </form>
+    <div id="t2"></div>
+
     <script>
+        var strVar01 = "こんにちは";
+        document.getElementById("t1").innerHTML = strVar01;
+
         var myFunc = function()
         {
-            var tArea = document.getElementById("t1");
-            tArea.innerHTML = "イヤン！押された";
+            var tArea = document.getElementById("t2");
+            tArea.innerHTML = document.forms.form1.tboxText.value;
         }
     </script>
     <!-- 
