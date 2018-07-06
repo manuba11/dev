@@ -4,51 +4,52 @@
 <head>
 <title>Learning Javascript</title>
 <meta charset="UTF-8" />
-<script>
-//window.onload = function()
-//{
-//    window.setInterval(function())
-//    {
-//        var dd = new Date();
-//        document.getElementById("T1").innerHTML = dd.toLocaleString();
-//    }, 1000);
-//}
+<!--
+https://www.junoe.jp/downloads/itoh/enc_js.shtml
+-->
+<script type = "text/javascript" src = "ecl.js"> </script>
 
-</script>
 </head>
 <body>
     <h1>Javascriptの練習</h1>
-    <h2>document</h2>
+    <h2>価格コムでキーワード検索</h2>
 
+    <!--
     <h3>docuent.write([テキスト])</h3>
     <div id="t1"></div>
+    -->
 
-    <h3>document.getElementByName([名前])</h3>
+    <h3>Search for kakaku.com with the keywords.</h3>
+    Please enter search keywords here.<p>
     <form id = "form1">
-        <input type = "text" id = "tboxText" value = "ここに文字を入れてください"> 
+        <input type = "text" id = "tboxText" value = ""> 
         <input type = "button" id = "btnChg" value = "押す" onClick = "myFunc()"><p>
     </form>
     <div id="t2"></div>
 
     <script>
-        var strVar01 = "こんにちは";
-        document.getElementById("t1").innerHTML = strVar01;
+        var urlKakakucom = "http://kakaku.com/search_results/";
+        var urlAddChar = "/?act=sp";
 
         var myFunc = function()
         {
             var tArea = document.getElementById("t2");
-            tArea.innerHTML = document.forms.form1.tboxText.value;
+            var strKeyword = document.forms.form1.tboxText.value;
+            var strError = "There are no keywords. Please enter the keywords.";
+
+            console.log(document.forms.form1.tboxText.value);
+            if(strKeyword != "")
+            {
+                tArea.innerHTML = urlKakakucom + EscapeSJIS(strKeyword) + urlAddChar;
+                //console.log(tArea.innerHTML);
+                //location.href = tArea.innerHTML;
+                window.open(tArea.innerHTML, '_blank');
+            }
+            else {
+                tArea.innerHTML = strError;
+            }
         }
     </script>
-    <!-- 
-        strVar = "Hello world!";
-        document.write(strVar + "<p>");
-        //comment
-        dateVar = new Date();
-        document.write("ただ今の時間は");
-        document.write(dateVar.toLocaleString());
-        document.write("です。");
-    -->
 </body>
 </html>
 
