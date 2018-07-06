@@ -1,6 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- Write with HTML5-->
+<head>
+<title>Learning Javascript</title>
+<meta charset="UTF-8" />
+<script>
+//window.onload = function()
+//{
+//    window.setInterval(function())
+//    {
+//        var dd = new Date();
+//        document.getElementById("T1").innerHTML = dd.toLocaleString();
+//    }, 1000);
+//}
+
+</script>
+</head>
 <body>
-    <h1>Title</h1>
+    <h1>Javascriptの練習</h1>
+    <h2>document.getElementById([idの名前])</h2>
+    <input type = "button" name = "btnChg" value = "押す" onClick = "myFunc()"><p>
+    <div id="t1"></div>
+
     <script>
+        var myFunc = function()
+        {
+            var tArea = document.getElementById("t1");
+            tArea.innerHTML = "イヤン！押された";
+        }
+    </script>
+    <!-- 
         strVar = "Hello world!";
         document.write(strVar + "<p>");
         //comment
@@ -8,7 +37,7 @@
         document.write("ただ今の時間は");
         document.write(dateVar.toLocaleString());
         document.write("です。");
-    </script>
+    -->
 </body>
 </html>
 
