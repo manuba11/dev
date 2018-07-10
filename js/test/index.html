@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- Write with HTML5-->
+<head>
+<meta charset="UTF-8" />
+<title>Learning HTML5 form</title>
+<!--
+<script type = "text/javascript" src = "ecl.js"></script>
+-->
+</head>
+<body>
+    <!--
+    <h2>h2</h2>
+    <h3>h3</h3>
+    -->
+    <h1>h1</h1>
+    <form id = "form1">
+        <input type = "button" id = "btnChg" value = "Push!" onClick = "fncClickButton()">
+        <p>
+    </form>
+    <div id = "div1"></div>
+
+    <script language = "javascript" type = "text/javascript">
+        function fncClickButton()
+        {
+            var target = document.getElementById("div1");
+            target.innerHTML = "Pushed!"
+        }
+    </script>
+</body>
+</html>
+
