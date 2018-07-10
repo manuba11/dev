@@ -9,7 +9,8 @@ var fncTBoxEnter = function()
 {
     if(window.event.keycode==13)
     {
-        document.forms.form1.tboxText.submit();
+        //document.forms.form1.submit();
+        fncClickButton();
     }
 }
 
@@ -25,7 +26,7 @@ var fncClickButton = function()
         tArea.innerHTML = urlKakakucom + EscapeSJIS(strKeyword) + urlAddChar;
         //console.log(tArea.innerHTML);
         //location.href = tArea.innerHTML;
-        window.open(tArea.innerHTML, '_blank');
+        window.open(tArea.innerHTML);
     }
     else {
         tArea.innerHTML = strError;
