@@ -15,16 +15,28 @@
     -->
     <h1>h1</h1>
     <form id = "form1">
-        <input type = "button" id = "btnChg" value = "Push!" onClick = "fncClickButton()">
+        <input type = "button" id = "btnChg" value = "Push!" onClick = "fncClickButton()"><p>
+        <input type = "checkbox" name = "apple" onchange = "cboxValue(this.name, this.checked)">Apple
+        <input type = "checkbox" name = "orange" onchange = "cboxValue(this.name, this.checked)">Orange
+        <input type = "checkbox" name = "banana" onchange = "cboxValue(this.name, this.checked)">Banana
+
         <p>
     </form>
     <div id = "div1"></div>
+    <div id = "div2"></div>
+
 
     <script language = "javascript" type = "text/javascript">
         function fncClickButton()
         {
             var target = document.getElementById("div1");
             target.innerHTML = "Pushed!"
+        }
+
+        var cboxValue = function(v1, v2)
+        {
+            var target = document.getElementById("div2"); 
+            target.innerHTML = v1 + " is " + v2;
         }
     </script>
 </body>
