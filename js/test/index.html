@@ -15,10 +15,10 @@
     -->
     <h1>h1</h1>
     <form id = "form1">
-        <input type = "button" id = "btnChg" value = "Push!" onClick = "fncClickButton()"><p>
-        <input type = "checkbox" name = "apple" onchange = "cboxValue(this.name, this.checked)">Apple
-        <input type = "checkbox" name = "orange" onchange = "cboxValue(this.name, this.checked)">Orange
-        <input type = "checkbox" name = "banana" onchange = "cboxValue(this.name, this.checked)">Banana
+        <input type = "button" id = "btnChg" value = "Push!" onClick = "clkBtn()"><p>
+        <input type = "checkbox" name = "apple" onchange = "chgCbox(this.name, this.checked)">Apple
+        <input type = "checkbox" name = "orange" onchange = "chgCbox(this.name, this.checked)">Orange
+        <input type = "checkbox" name = "banana" onchange = "chgCbox(this.name, this.checked)">Banana
 
         <p>
     </form>
@@ -26,16 +26,43 @@
     <div id = "div2"></div>
 
 
+    <!--
+    ---------------------------------------- Start Javascript---------------------------------------- 
+    -->
     <script language = "javascript" type = "text/javascript">
-        function fncClickButton()
+        var boolCbox = new Array(3);
+        setCbox();
+
+        function setCbox()
+        {
+            var nlTypes = document.forms.form1;
+            boolCbox[0] = nlTypes.apple.checked;
+            boolCbox[1] = nlTypes.orange.checked;
+            boolCbox[2] = nlTypes.banana.checked;
+        }
+
+        function clkBtn()
         {
             var target = document.getElementById("div1");
             target.innerHTML = "Pushed!"
         }
 
-        var cboxValue = function(v1, v2)
+        var chgCbox = function(v1, v2)
         {
             var target = document.getElementById("div2"); 
+            //console.log(v1 + "" + v2);
+            switch(v1)
+            {
+                case 'apple':
+                    boolCbox[0] = v2;
+                    break;
+                case 'orange':
+                    boolCbox[1] = v2;
+                    break;
+                case 'banana':
+                    boolCbox[2] = v2;
+                    break;
+            }
             target.innerHTML = v1 + " is " + v2;
         }
     </script>
