@@ -13,13 +13,17 @@
     <h2>h2</h2>
     <h3>h3</h3>
     -->
-    <h1>h1</h1>
-    <form id = "form1">
-        <input type = "button" id = "btnChg" value = "Push!" onClick = "clkBtn()"><p>
-        <input type = "checkbox" name = "apple" onchange = "chgCbox(this.name, this.checked)">Apple
-        <input type = "checkbox" name = "orange" onchange = "chgCbox(this.name, this.checked)">Orange
-        <input type = "checkbox" name = "banana" onchange = "chgCbox(this.name, this.checked)">Banana
-
+    <h1>[Input title here]</h1>
+    <!--
+    Suppress submit on form. Use 'onsubmit = "return false;"'.
+    -->
+    <form id = "form1" onsubmit = "return false;">
+        <label for = "txtKeywords">Please enter keywords here. </label><input type = "text" id = "txtKeywords" value = "" onkeypress = "prsKey(this.value, event.keyCode);">
+        <input type = "button" id = "btnChg" value = "Submit" onClick = "clkBtn();"><p>
+        <label for = "fruits"> Which do you like?</label>
+        <input type = "checkbox" id = "fruits" name = "apple" onchange = "chgCbox(this.name, this.checked);">Apple
+        <input type = "checkbox" id = "fruits" name = "orange" onchange = "chgCbox(this.name, this.checked);">Orange
+        <input type = "checkbox" id = "fruits" name = "banana" onchange = "chgCbox(this.name, this.checked);">Banana
         <p>
     </form>
     <div id = "div1"></div>
@@ -44,7 +48,9 @@
         function clkBtn()
         {
             var target = document.getElementById("div1");
-            target.innerHTML = "Pushed!"
+            var txtKeyword = document.getElementById("txtKeywords");
+
+            target.innerHTML = txtKeywords.value;
         }
 
         var chgCbox = function(v1, v2)
@@ -65,6 +71,17 @@
             }
             target.innerHTML = v1 + " is " + v2;
         }
+
+        function prsKey(v1, v2)
+        {
+            if(v2 == 13)
+            {
+                var target = document.getElementById("div1");
+    
+                target.innerHTML = v1;
+            }
+        }
+
     </script>
 </body>
 </html>
