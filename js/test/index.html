@@ -22,24 +22,24 @@
         <input type = "text" id = "txtKeywords" value = "" onkeypress = "prsKey(this.value, event.keyCode);">
         <input type = "button" id = "btnSearch" value = "Push!" onClick = "clkBtn();"><p>
         
-        <label for = "fruits">Which do you like?</label>
+        <label for = "fruits">Which do you like?</label><p>
         <input type = "checkbox" id = "fruits" name = "apple" onchange = "chgCbox(this.name, this.checked);">Apple
         <input type = "checkbox" id = "fruits" name = "orange" onchange = "chgCbox(this.name, this.checked);">Orange
         <input type = "checkbox" id = "fruits" name = "banana" onchange = "chgCbox(this.name, this.checked);">Banana<p>
         
-        <label for = "radAge">How old are you?</label>
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge()" value = "u6">under 6
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge()" value = "7t12">7-12
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge()" value = "13t15">13-15
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge()" value = "16t18">16-18
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge()"value = "radioAge()" "19t22" checked = "checked">19-22
-        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge() "value = "radioAge()" "23t29">23-29
-        <input type = "radio" id = "radAge" name = "groupAge" value = "radioAge()" "30t39">30-39
-        <input type = "radio" id = "radAge" name = "groupAge" value = "radioAge()" "40t49">40-49
-        <input type = "radio" value = "select" ">
+        <label for = "radAge">How old are you?</label><p>
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value)" value = "u6">under 6
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value)" value = "7t12">7-12
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value)" value = "13t15">13-15
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value)" value = "16t18" checked = "checked">16-18
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value)" value = "19t22" >19-22
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value) "value = "23t29">23-29
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value) "value = "30t39">30-39
+        <input type = "radio" id = "radAge" name = "groupAge" onclick = "radioAge(this.value) "value = "40t49">40-49
     </form>
     <div id = "div1"></div>
     <div id = "div2"></div>
+    <div id = "div3"></div>
 
 
     <!--
@@ -47,8 +47,27 @@
     -->
     <script language = "javascript" type = "text/javascript">
         var boolChkBox = new Array(3);
+        var rangeAge;
         setChkBox();
 
+        //initialize when onload
+        window.onload = function()
+        {
+            var target = document.getElementById("div3");
+            var nlistRadios = document.getElementsByName("groupAge");
+
+//            console.log(nlistRadios.length);
+            for(i = 0; i < nlistRadios.length; i++)
+            {
+                if(nlistRadios[i].checked)
+                {
+                    target.innerHTML = nlistRadios[i].value;
+//                    break;
+                }
+            }
+
+        }
+        
         //Initialize Arrays with value.
         function setChkBox()
         {
@@ -95,9 +114,11 @@
             }
         }
 
-        function radioAge()
+        function radioAge(v1)
         {
-            console.log(document.forms.form1.radAge);
+            var target = document.getElementById("div3");
+            target.innerHTML = v1;
+            rangeAge = v1;
         }
 
     </script>
