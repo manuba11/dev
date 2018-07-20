@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- Write with HTML5-->
+<head>
+<meta charset="UTF-8" />
+<title></title>
+<!--
+-->
+</head>
+<body>
+    <h1 id = "h1_0001"></h1>
+
+    <form id = "frmMain" onsubmit = "return false;">
+        
+    </form>
+
+<!--
+    //Duplication of ID is forbidden.
+    //Therefor, if there are multiple IDs. getElementById can obtain only the first Element.
+-->
+    <div id = "div1" name = "first"></div>
+    <div id = "div1" name = "second"></div>
+    <div id = "div1" name = "third"></div>
+    <div id = "div1" name = "fourth"></div>
+<!--
+    //This is the div element to use for display. 
+-->
+    <div id = "div2"></div>
+
+    <!-- Start Javascript -->
+    <script language = "javascript" type = "text/javascript">
+        <!-- Write the code below this. -->
+        //This is a function executed after the web browser is displayed.
+        window.onload = function()
+        {
+            var output1 = document.getElementById("div2");
+            var output2 = document.getElementById("h1_0001");
+
+            //Output result to console.
+            console.log(document.getElementById("div1").getAttribute("name"));
+            //Output result to tag.
+            output1.innerHTML = document.getElementById("div1").getAttribute("name");
+            
+            //Update page title
+            //Update the text of <h1> tag.
+            document.title = "My Page";
+            output2.innerHTML = "Title";
+
+        }
+
+    </script>
+</body>
+</html>
+
