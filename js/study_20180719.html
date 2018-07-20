@@ -11,21 +11,38 @@
     <h1 id = "h1_0001"></h1>
 
     <form id = "frmMain" onsubmit = "return false;">
-        
+        <label for = "row">row</label>
+        <select id = "selRow" name = "row">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+        </select>
+        <label for = "column">column</label>
+        <select id = "selCol" name = "column">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+        </select>
+        <input type = "button" value = "Generate!" onClick = "genTable();">
     </form>
 
 <!--
     //Duplication of ID is forbidden.
     //Therefor, if there are multiple IDs. getElementById can obtain only the first Element.
--->
-    <div id = "div1" name = "first"></div>
     <div id = "div1" name = "second"></div>
     <div id = "div1" name = "third"></div>
     <div id = "div1" name = "fourth"></div>
+-->
 <!--
     //This is the div element to use for display. 
 -->
+    <div id = "div1"></div>
     <div id = "div2"></div>
+    <div id = "table"></div>
 
     <!-- Start Javascript -->
     <script language = "javascript" type = "text/javascript">
@@ -37,15 +54,31 @@
             var output2 = document.getElementById("h1_0001");
 
             //Output result to console.
-            console.log(document.getElementById("div1").getAttribute("name"));
+            //console.log(document.getElementById("div1").getAttribute("name"));
             //Output result to tag.
             output1.innerHTML = document.getElementById("div1").getAttribute("name");
             
             //Update page title
             //Update the text of <h1> tag.
-            document.title = "My Page";
-            output2.innerHTML = "Title";
+            document.title = "Generate table";
+            output2.innerHTML = document.title;
 
+        }
+
+        //Function for generating a table.
+        function genTable()
+        {
+            //div tag for display.
+            var tgtDiv = document.getElementById("div2");
+            //table tag for table.
+            var tgtTable = document.getElementById("table");
+
+            //select tag for table.
+            var tagRow = document.getElementById("selRow");
+            var tagCol = document.getElementById("selCol");
+            //value attribute of the selected select tag.:q:
+            var numRow = tagRow[tagRow.selectedIndex].getAttribute("value");
+            var numRow = tagCol[tagCol.selectedIndex].getAttribute("value");
         }
 
     </script>
