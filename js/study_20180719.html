@@ -79,6 +79,17 @@
             //value attribute of the selected select tag.:q:
             var numRow = tagRow[tagRow.selectedIndex].getAttribute("value");
             var numRow = tagCol[tagCol.selectedIndex].getAttribute("value");
+
+            var elmTable = document.createElement("table");
+            var elmTh = document.createElement("th");
+
+            elmTable.setAttribute("id", "table_sample");
+            elmTh.setAttribute("id", "table_sample_th");
+
+            tgtTable.appendChild(elmTable);
+            tgtTable.appendChild(elmTh);
+            //document.getElementById("table_sample");
+
         }
 
     </script>
