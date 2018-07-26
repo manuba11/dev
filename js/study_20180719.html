@@ -47,6 +47,24 @@
     <!-- Start Javascript -->
     <script language = "javascript" type = "text/javascript">
         <!-- Write the code below this. -->
+        //
+        var tagNew = function (tag)
+        {
+            var elem = document.createElement(tag);
+            for (i = 1; i < arguments.length; i++)
+            {
+                elem.appendChild(arguments[i]);
+            }
+            return elem;
+        };
+
+        //
+        var txtNew = function(text)
+        {
+            return document.createTextNode(text);
+
+        };
+
         //This is a function executed after the web browser is displayed.
         window.onload = function()
         {
@@ -56,10 +74,10 @@
             //Output result to console.
             //console.log(document.getElementById("div1").getAttribute("name"));
             //Output result to tag.
-            output1.innerHTML = document.getElementById("div1").getAttribute("name");
-            
+            output1
+ 
             //Update page title
-            //Update the text of <h1> tag.
+            //Update the text of <h1> ta
             document.title = "Generate table";
             output2.innerHTML = document.title;
 
@@ -76,20 +94,20 @@
             //select tag for table.
             var tagRow = document.getElementById("selRow");
             var tagCol = document.getElementById("selCol");
-            //value attribute of the selected select tag.:q:
+            //value attribute of the selected select tag.
             var numRow = tagRow[tagRow.selectedIndex].getAttribute("value");
-            var numRow = tagCol[tagCol.selectedIndex].getAttribute("value");
+            var numCol = tagCol[tagCol.selectedIndex].getAttribute("value");
 
-            var elmTable = document.createElement("table");
-            var elmTh = document.createElement("th");
 
-            elmTable.setAttribute("id", "table_sample");
-            elmTh.setAttribute("id", "table_sample_th");
+            if(tgtTable.hasChildNodes() == true)
+            {
+                tgtTable.removeChild(tgtTable.firstChild);
+            }
 
-            tgtTable.appendChild(elmTable);
-            tgtTable.appendChild(elmTh);
-            //document.getElementById("table_sample");
-
+            tgtTable.appendChild(tagNew('table', tagNew('tr', tagNew('td', txtNew('Row')),
+                                                tagNew('td', txtNew(numRow))),
+                                                tagNew('tr', tagNew('td', txtNew('Col')),
+                                                tagNew('td', txtNew(numCol)))));
         }
 
     </script>
