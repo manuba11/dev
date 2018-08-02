@@ -10,7 +10,7 @@
 <body>
     <h1 id = "h1_0001"></h1>
 
-    <form id = "frmMain" onsubmit = "return false;">
+    <form id = "frmMain" onsubmit = "return false;" style = "background-color:gray">
         <label for = "row">row</label>
         <select id = "selRow" name = "row">
             <option value = "1">1</option>
@@ -108,6 +108,7 @@
                                                 tagNew('td', txtNew(numRow))),
                                                 tagNew('tr', tagNew('td', txtNew('Col')),
                                                 tagNew('td', txtNew(numCol)))));
+            tgtTable.setAttribute("style", "background-color:yellow");
         }
 
     </script>
