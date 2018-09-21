@@ -30,7 +30,6 @@
 
         const TOKEN = 'e39640809dc7129f0cfca3c065013215';
 
-<<<<<<< HEAD
         var output1 = document.getElementById("div1");
         var output2 = document.getElementById("div2");
         var output3 = document.getElementById("div3");
@@ -88,9 +87,6 @@
             };
             beep();
         }
-=======
-        document.getElementById("div1").innerHTML = 
->>>>>>> 0bd90fefbb2efefa45cd5902907865fcdc91bad1
 
         //https://techacademy.jp/magazine/5537
         getSensorValue();
